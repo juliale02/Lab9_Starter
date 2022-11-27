@@ -102,6 +102,108 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+        let form = document.querySelector('form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let output = document.querySelector('output');
+      let firstNum = document.querySelector('#first-num').value;
+      let secondNum = document.querySelector('#second-num').value;
+      let operator = document.querySelector('#operator').value;
+      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+    });
+
+    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+
+    // Start your code here
+    // You may move this JS to another file if you wish
+    
+    //step 2
+    let buttons = document.querySelectorAll("button");
+    let logBtn = buttons[1];
+    logBtn.onclick = function(){
+      console.log("Console log demo");
+    }
+    let errBtn = buttons[2];
+    errBtn.onclick = function(){
+      console.error("Console error demo");
+    }
+    let count = 0;
+    let countBtn = buttons[3];
+    countBtn.onclick = function(){
+      count += 1; 
+      console.log("Console count: " + count);
+    }
+    let warnBtn = buttons[4];
+    warnBtn.onclick = function(){
+      console.warn("Console warn demo");
+    }
+    let assertBtn = buttons[5];
+    assertBtn.onclick = function(){
+      console.assert(false,1,2);
+    }
+    let clearBtn = buttons[6];
+    clearBtn.onclick = function(){
+      console.clear();
+    }
+    let dirBtn = buttons[7];
+    dirBtn.onclick = function(){
+      console.dir(dirBtn);
+    }
+    
+    let dirxmlBtn = buttons[8];
+    dirxmlBtn.onclick = function(){
+      console.dirxml(dirxmlBtn);
+    }
+    
+    let groupStartBtn = buttons[9];
+    groupStartBtn.onclick = function(){
+      console.group("Console group demo");
+    }
+    let groupEndBtn = buttons[10];
+    groupEndBtn.onclick = function(){
+      console.groupEnd();
+    }
+    
+    let tableBtn = buttons[11];
+    tableBtn.onclick = function(){
+      console.table(["apples", "oranges", "bananas"]);
+    }
+    let startTimerBtn = buttons[12];
+    startTimerBtn.onclick = function(){
+      console.time();
+
+    }
+    let endTimerBtn = buttons[13];
+    endTimerBtn.onclick = function(){
+      console.timeEnd();
+    }
+    let traceBtn = buttons[14];
+    traceBtn.onclick = function(){
+      console.trace(); 
+    }
+    
+    //step 3/4
+    let error = new Error("error occured:step 3");
+    try {
+      alert('Start of try runs');  
+      undefinedVar;
+      alert('End of try (never reached)');
+    } 
+    catch (err) {
+      throw error; 
+    } 
+    finally {
+       alert( 'finally' );
+    }
+    //step 5
+    let globalBtn = buttons[15];
+    globalBtn.onclick = function(){
+      window.TrackJS && TrackJS.install({ 
+      token: "e32059ccbbb8437bbeaa0d414444948d"
+      // for more configuration options, see https://docs.trackjs.com
+      });
+      TrackJS.track('Testing TrackJS!');
+    }
   </script>
 </body>
 
